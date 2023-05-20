@@ -1,4 +1,20 @@
 package med.voll.api.endereco;
 
-public record DadosEndereco( String logradouro, String numero, String complemento, String bairro, String cidade, String uf, String cep) {
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
+public record DadosEndereco(
+        @NotNull
+        String logradouro,
+        String numero,
+        String complemento,
+        @NotNull
+        String bairro,
+        @NotNull
+        String cidade,
+        @NotNull
+        String uf,
+        @NotNull
+        @Pattern(regexp = "\\d{8}")
+        String cep ) {
 }
