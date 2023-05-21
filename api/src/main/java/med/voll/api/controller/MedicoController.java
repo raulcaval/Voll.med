@@ -54,6 +54,12 @@ public class MedicoController {
     }
 
 
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar( @PathVariable Long id ) {
+        var medico = repository.getReferenceById( id ); //carrega dados do banco
+
+        return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
+    }
 
 
 }
