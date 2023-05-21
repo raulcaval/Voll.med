@@ -37,9 +37,14 @@ public class MedicoController {
         medico.atualizarInformacoes( dados );
     }
 
+    @DeleteMapping("/{id}") //parametro dinâmico
+    @Transactional
+    public void excluir( @PathVariable Long id ) {
+        repository.deleteById( id );
+    }
+
 //    @GetMapping
 //    public List<DadosListagemMedico> listar() {
-////        Endender tudo o que essa linha faz.
 //        return repository.findAll().stream().map(DadosListagemMedico::new).toList();
 //    }
 
