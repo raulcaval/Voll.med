@@ -18,8 +18,9 @@ public class TokenService {
     @Value("${api.security.token.secret}")
     private String secret;
 
-    public String gerarToken( Usuario usuario ) {
-
+    public String gerarToken( Usuario usuario
+    )
+    {
         try {
             var algoritimo = Algorithm.HMAC256( secret );
             return JWT.create()
@@ -27,16 +28,20 @@ public class TokenService {
                     .withSubject( usuario.getLogin() )
                     .withExpiresAt( dataExpiracao() )
                     .sign( algoritimo );
-        } catch ( JWTCreationException exception ){
+        } catch ( JWTCreationException exception ) {
             throw new RuntimeException( "erro ao gerar o token", exception );
         }
     }
 
-    private Instant dataExpiracao() {
+    private Instant dataExpiracao(
+    )
+    {
         return LocalDateTime.now().plusHours( 2 ).toInstant( ZoneOffset.of( "-3") );
     }
 
-    public String getSubject( String tokenJWT ) {
+    public String getSubject( String tokenJWT
+    )
+    {
         try {
             var algoritimo = Algorithm.HMAC256( secret );
             return JWT.require( algoritimo )
