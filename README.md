@@ -17,6 +17,13 @@ Aplicativo voltado para administração de cadastro de médicos, clientes e cons
 * Autenticação/Autorização
 * Tokens JWT
 
+## Objetivos - 03
+
+* Funcionalidade de agendamento de consultas
+* Documentação da API
+* Testes automatizados
+* Build do projeto
+
 ## Tecnologias
 
 * Spring Boot 3
